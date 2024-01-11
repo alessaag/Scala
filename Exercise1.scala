@@ -52,6 +52,9 @@ sealed trait Message{
   val id: UUID
 }
 
+//Las case classes con sus companion object (que aportan los metodos apply y unapply) permiten usar
+//pattern matching
+
 case class TextMessage(id: UUID, content: String) extends Message with Printable with Coloreable {
   override def print: Unit = println(s"Content: $content")
 
@@ -84,6 +87,13 @@ object SoundMessage {
 }
 
 object Main {
+//Pattern matching
+  def printType(mess: Message): Unit = mess match {
+    case SoundMessage(id, soundURI) => println(s"Es un SoundMessage con URI: ${soundURI}")
+    case TextMessage(id, content) => println(s"Es un TextMessage con content: ${content}")
+    case AttachmentMessage(id, attachmentURI) => println(s"Es un AttachMessage con content: ${attachmentURI}")
+  }
+
   def main(args: Array[String]): Unit = {
     val text1 = TextMessage(UUID.randomUUID(), "This is the content")
     val text2 = TextMessage("This is the content con companion object")
@@ -98,6 +108,10 @@ object Main {
     text2.print
     attach1.print
     attach2.print
+
+    printType(text1)
+    printType(attach2)
+    printType(sound1)
   }
 
 
