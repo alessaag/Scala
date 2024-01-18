@@ -40,9 +40,9 @@ Set(1,2,3) ++ Set(3,4,5)
 * map: aplica una funcion a cada elemento de la lista y crea una nueva lista con los elementos modificados
 * fold: es una función que toma dos argumentos, el segundo argumento es una funcion que a su vez recibe dos argumentos (acumulado, actual).
 * la función es recursiva y se aplica a cada elemento de la lista. El primer valor de acumulado es el primer argumento de fold.
-* permite recorrer los elementos de la lista y aplicarles una funcion que tiene en cuenta un valor inicial, y una operación recursiva entre un acumulado y los elementos de la lista
-* se puede encontrar una descripcion detallada sobre fold en: https://www.baeldung.com/scala/folding-lists
-* option:
+* Se puede encontrar una descripcion detallada sobre fold en: https://www.baeldung.com/scala/folding-lists
+* option: es util para apoyar la escritura de codigo que debe tratar con ausencia de datos.
+* Ver más informacion en: https://www.baeldung.com/scala/option-type
 * */
 
 numLst.filter(elem => elem % 2 == 0) // es lo mismo que numLst.filter(_ % 2 == 0)
